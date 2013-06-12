@@ -1,0 +1,6 @@
+# unbind
+toggle_keep_vp
+
+next_img j
+prev_img k
+toggle_fullscreen F5
