@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#
+# Script to manage the lifecycle of this configuration module.
+# Run it without arguments for further information.
+
+MODULE=feh
+
+function INSTALL() {
+    if [ -n "$XDG_CONFIG_HOME" ]; then
+        local _linkname=$XDG_CONFIG_HOME/$MODULE
+    else
+        local _linkname=~/.config/$MODULE
+    fi
+    link $CURRENT_DIRECTORY $_linkname
+}
+
+############################################################## begin-bootstrap
+function _bootstrap() {
+    CURRENT_DIRECTORY=$(dirname $(readlink -e $0))
+    local _libDirectory=configuration-module-lib
+    local _template=$CURRENT_DIRECTORY/$_libDirectory/management-template.sh
+    command -v git &>/dev/null && {
+        cd $CURRENT_DIRECTORY
+        git submodule --quiet init $_libDirectory ; git submodule --quiet update
+        [ -e $_template ] && source $_template $@
+    }
+    echo "Bootstrap operation failed. Aborting."; exit 1
+}
+_bootstrap $@
+############################################################## end-bootstrap
