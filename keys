@@ -1,5 +1,7 @@
 # unbind
 toggle_keep_vp
+save_image
+save_filelist
 
 # menu bindings
 menu_parent h Left
