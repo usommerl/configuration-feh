@@ -1,1 +1,1 @@
-default --info "echo %w x %h \| %S \| %z" --draw-tinted --image-bg black --scale-down
+default --info "echo %w x %h \| %S \| %z" --draw-tinted --image-bg #595959 --scale-down
