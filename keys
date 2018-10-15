@@ -19,6 +19,6 @@ scroll_left  h C-Left
 scroll_right l C-Right
 
 # misc
-toggle_fullscreen F5
+toggle_fullscreen f
 zoom_in plus Up
 zoom_out minus Down
